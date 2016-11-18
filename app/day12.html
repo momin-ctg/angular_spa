@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS | Route</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="controller.js"></script>
+    <script src="myFilter.js"></script>
+    <!--<script src="database.js"></script>-->
+</head>
+<body ng-app="mainApp" ng-controller="myCtrl">
+<!--<div ng-view=""></div>-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div style="margin: 30px 0;">
+                <div class="pull-left">
+                    <label for="search"> Search:
+                        <input type="search" id="search" ng-model="searchBox">
+                    </label>
+                </div>
+
+                <div calss="pull-right">
+                     <h4>Currency:{{ myVar1 }}</h4>
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead class="text-center">
+                    <tr>
+                        <th>Students Name</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="student in students | filter: searchBox">
+                        <td>{{ student.Name }}</td>
+                        <td>{{ student.score }}</td>
+                        <td>{{ student.status | status }}</td>
+                        <td ng-repeat="totals in student.math">
+                            {{ totals.total }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <a href="">{{ abc }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
